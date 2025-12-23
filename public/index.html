@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseScan | Website Health Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Interactive Site Scanner</p>
+          <h1>Scan any site for errors and easy wins</h1>
+          <p class="subhead">
+            Paste a URL to instantly check availability, scan links, and surface SEO, accessibility,
+            and performance insights—all in a clean, modern dashboard.
+          </p>
+          <form class="scan-form" id="scanForm">
+            <input
+              type="url"
+              name="url"
+              id="url"
+              placeholder="https://example.com"
+              required
+              autocomplete="url"
+            />
+            <button type="submit" id="scanButton">Scan now</button>
+          </form>
+          <p class="helper">We’ll follow redirects and sample links to flag broken paths.</p>
+        </div>
+        <div class="hero-card">
+          <div class="badge">Live audit</div>
+          <div class="hero-metric">
+            <div>
+              <p>Response time</p>
+              <h2 id="heroTime">— ms</h2>
+            </div>
+            <div class="sparkline" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="hero-metric">
+            <div>
+              <p>Broken links</p>
+              <h2 id="heroBroken">—</h2>
+            </div>
+            <div class="pill good" id="statusPill">Awaiting scan</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel wide">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Overview</p>
+              <h3>Health summary</h3>
+            </div>
+            <div class="chip" id="statusChip">No scan yet</div>
+          </div>
+          <div class="overview" id="overview"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Insights</p>
+              <h3>Quick wins</h3>
+            </div>
+          </div>
+          <ul class="insights" id="insights">
+            <li class="muted">Run a scan to see prioritized recommendations.</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Links</p>
+              <h3>Broken link check</h3>
+            </div>
+            <p class="note" id="linkSummary">No data</p>
+          </div>
+          <div class="list" id="linkList">
+            <p class="muted">We’ll test up to 8 unique links for quick validation.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
